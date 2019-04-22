@@ -1,5 +1,4 @@
 const http = require("http");
-const url = require("url");
 
 
 const {PORT, HOST} = process.env;
@@ -13,8 +12,9 @@ const httpServer = http.createServer((req, res) => {
             'PUT':'world updated',
             'DELETE':'world deleted'
         }
-		res.writeHead(200, { "Content-Type": "text/plain" });
-		res.end(resMapping[method] + "\n");
+		res.writeHead(200, { "Content-Type": "text/html" });
+        res.write(resMapping[method] + "\n");
+        res.end();
 	}
 });
 
