@@ -19,5 +19,7 @@ const httpServer = http.createServer((req, res) => {
 });
 
 
-httpServer.listen(PORT||3000 ,HOST);
+httpServer.listen(PORT||3000 ,HOST, (e)=>{
+    console.error(e);
+});
 console.log("Server started at "+ PORT);
