@@ -1,11 +1,11 @@
 const http = require("http");
-const url = require("url");
 
 
-const {PORT, HOST} = process.env;
+const port   = process.env.PORT || 3000;
+const host  = process.env.HOST;
 const httpServer = http.createServer((req, res) => {
 	const pathName = req.url;
-	if ("/hello" === pathName) {
+	if (pathName ==='/hello') {
         const method = req.method;
         const resMapping = {
             'GET': 'world',
@@ -13,13 +13,13 @@ const httpServer = http.createServer((req, res) => {
             'PUT':'world updated',
             'DELETE':'world deleted'
         }
-		res.writeHead(200, { "Content-Type": "text/plain" });
+		res.writeHead(200, {'Content-Type':'text/html'});
 		res.end(resMapping[method] + "\n");
 	}
 });
 
 
-httpServer.listen(PORT||3000 ,HOST, (e)=>{
+httpServer.listen(port , host, (e)=>{
     console.error(e);
 });
 console.log("Server started at "+ PORT);
