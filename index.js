@@ -20,5 +20,5 @@ const httpServer = http.createServer((req, res) => {
 
 
 
-httpServer.listen(PORT||8080);
+httpServer.listen(PORT||3000);
 console.log("Server started at "+ PORT);
