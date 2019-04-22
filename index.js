@@ -13,7 +13,7 @@ const httpServer = http.createServer((req, res) => {
             'DELETE':'world deleted'
         }
 		res.writeHead(200, { "Content-Type": "text/html" });
-        res.write(resMapping[method] + "\n");
+        res.write(resMapping[method] );
         res.end();
 	}
 });
