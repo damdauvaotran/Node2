@@ -5,7 +5,7 @@ const port   = process.env.PORT || 3000;
 const host  = process.env.HOST;
 const httpServer = http.createServer((req, res) => {
 	const pathName = req.url;
-	if (pathName ==='/hello') {
+	if (pathName =='/hello') {
         const method = req.method;
         const resMapping = {
             'GET': 'world',
@@ -15,11 +15,11 @@ const httpServer = http.createServer((req, res) => {
         }
 		res.writeHead(200, {'Content-Type':'text/html'});
 		res.end(resMapping[method] + "\n");
-	}
+	} 
 });
 
 
 httpServer.listen(port , host, (e)=>{
     console.error(e);
 });
-console.log("Server started at "+ PORT);
+
