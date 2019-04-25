@@ -5,7 +5,7 @@ let port   = process.env.PORT || 3000;
 let host  = process.env.HOST || '127.0.0.1';
 let httpServer = http.createServer((req, res) => {
 	const pathName = req.url;
-	if (pathName =='/hello/') {
+	if (pathName =='/hello') {
         let method = req.method;
         let resMapping = {
             'GET': 'world',
@@ -18,8 +18,7 @@ let httpServer = http.createServer((req, res) => {
 	} 
 });
 
-
 httpServer.listen(port , host, (e)=>{
-    console.error(`Server run at ${host} ${port}`);
+    console.error(`Server run at ${host}:${port}`);
 });
 
