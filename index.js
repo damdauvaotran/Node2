@@ -1,7 +1,8 @@
 const http = require("http");
 
-let port = process.env.PORT || 3000;
-let host = process.env.HOST || "127.0.0.1";
+const port = process.env.PORT || 3000;
+const host = process.env.HOST || "127.0.0.1";
+
 let httpServer = http.createServer((req, res) => {
 	const pathName = req.url;
 	if (pathName == "/hello") {
@@ -24,13 +25,19 @@ let httpServer = http.createServer((req, res) => {
                 response = "world deleted"
                 break;
             }
-
+            default:{
+                response = "Invalid world"
+                break; 
+            }
 		}
 		res.writeHead(200, { "Content-Type": "text/plain" });
 		res.end(response);
-	}
+    } else {
+        res.end("unknown route")
+    }
+     
 });
 
-httpServer.listen(port, host, e => {
+httpServer.listen(port, e => {
 	console.error(`Server run at ${host}:${port}`);
 });
